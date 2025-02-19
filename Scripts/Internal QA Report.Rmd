@@ -1,0 +1,879 @@
+---
+title: "Internal QA Report - 2023"
+format: 
+  docx:
+    number-sections: false
+fig-align: center
+knitr: 
+  opts_chunk:
+    fig.align: center
+    out.width: 11cm
+execute:
+  echo: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Breakdowns
+All 20 Core Question Variables have been analysed and compared with SSCQ data for the last 4 publications (back to 2016 if necessary for some of the crime variables). 
+The means and CIs have been calculated, ensuring that the weights have been taken into account. These have the been summarised in tables and then visualised in graphs (if the variable has factors/levels then each factor/level has been visualised in a separate graph). 
+The tables and visualisations should help to see trends over time, as well as large differences in sampling/weighting/results between years for each variable.
+
+# Variables
+
+## 1. Age
+
+### 1.1 Mean Age
+This breakdown involved the continuous variable of age => the mean age for each SSCQ year was calculated (back to 2018).
+
+```{r, results='asis', echo=FALSE}
+Age_table <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs/Age_table.rds")
+
+knitr::kable(list(Age_table), caption = "SSCQ Respondent Average Age by Year")
+```
+
+
+```{r, results='asis', echo=FALSE}
+#| label: Mean Age
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "Age.png"))
+```
+
+
+### 1.2 Age Groups
+This breakdown looks at the more granular analysis of age distribution within and between each SSCQ year (back to 2018). 
+
+```{r, results='asis', echo=FALSE}
+AgeG_table <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs/AgeG_table.rds")
+
+knitr::kable(list(Age_table), caption = "SSCQ Respondent Age Group by Year")
+```
+
+
+```{r, results='asis', echo=FALSE}
+#| label: Age Group (16-24)
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "AgeG1.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Age Group (25-34)
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "AgeG2.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Age Group (35-44)
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "AgeG3.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Age Group (45-54)
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "AgeG4.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Age Group (55-64)
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "AgeG5.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Age Group (65-74)
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "AgeG6.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Age Group (75+)
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "AgeG7.png"))
+```
+
+
+## 2. Sex
+The following breakdowns show the proportion of male and female respondents in the SSCQ data since 2018.
+
+```{r, results='asis', echo=FALSE}
+Sex_table <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs/Sex_table.rds")
+
+knitr::kable(list(Sex_table), caption = "SSCQ Respondent Sex by Year")
+```
+
+
+```{r, results='asis', echo=FALSE}
+#| label: Male
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "Sex1.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Female
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "Sex2.png"))
+```
+
+
+
+## 3. Trans Status
+This variable was only added to the Core Questions in 2022, so only 2 SSCQ years can be compared.
+
+```{r, results='asis', echo=FALSE}
+Trans_table <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs/Trans_table.rds")
+
+knitr::kable(list(Trans_table), caption = "SSCQ Respondent Trans Status by Year")
+```
+
+
+```{r, results='asis', echo=FALSE}
+#| label: Yes, trans or has trans history
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "Trans1.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: No, not trans or doesn't have a trans history
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "Trans2.png"))
+```
+
+
+
+## 4. Household Type
+This variable gives a more granular analysis of the types of households in the SSCQ data => who makes up the households. 
+
+```{r, results='asis', echo=FALSE}
+HType_table <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs/HType_table.rds")
+
+knitr::kable(list(HType_table), caption = "SSCQ Respondent Household Type by Year")
+```
+
+
+```{r, results='asis', echo=FALSE}
+#| label: Single Adult
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "HType1.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Small Adult
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "HType2.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Large Adult
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "HType3.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Single Parent
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "HType4.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Small Family
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "HType5.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Large Family
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "HType6.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Single Pensioner
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "HType7.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Older Couple
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "HType8.png"))
+```
+
+
+
+## 5. Tenure
+This variable offers insight into the tenure type that SSCQ respondents currently have.
+
+```{r, results='asis', echo=FALSE}
+Tenure_table <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs/Tenure_table.rds")
+
+knitr::kable(list(Tenure_table), caption = "SSCQ Respondent Tenure Type by Year")
+```
+
+
+```{r, results='asis', echo=FALSE}
+#| label: Mortgaged
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "Tenure1.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Owned Outright
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "Tenure2.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Shared Ownership
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "Tenure3.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Renting
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "Tenure4.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Rent Free
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "Tenure5.png"))
+```
+
+
+
+## 6. Car Access
+This variable highlights the access to cars that SSCQ respondents currently have. Broken down further into how many cars they have if they do have access. 
+
+```{r, results='asis', echo=FALSE}
+Car_Access_table <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs/Car_Access_table.rds")
+
+knitr::kable(list(Car_Access_table), caption = "SSCQ Respondent Car Access by Year")
+```
+
+
+```{r, results='asis', echo=FALSE}
+#| label: No Car
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "CarAccess1.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: 1 Car
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "CarAccess2.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: 2 Cars
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "CarAccess3.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: 3 or more Cars
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "CarAccess4.png"))
+```
+
+
+
+## 7. Country of Birth
+This variable offers insight into where in the world the SSCQ respondents were born => does not necessarily indicate nationality. 
+
+```{r, results='asis', echo=FALSE}
+CoB_table <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs/CoB_table.rds")
+
+knitr::kable(list(CoB_table), caption = "SSCQ Respondent Country of Birth by Year")
+```
+
+
+```{r, results='asis', echo=FALSE}
+#| label: Scotland
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "CoB1.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Rest of the UK
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "CoB2.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: EU27
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "CoB3.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Rest of the World
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "CoB4.png"))
+```
+
+
+
+## 8. Religion
+This variable breaks down which (if any) religion that the SSCQ respondents identify with. 
+
+```{r, results='asis', echo=FALSE}
+Religion_table <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs/Religion_table.rds")
+
+knitr::kable(list(Religion_table), caption = "SSCQ Respondent Religion by Year")
+```
+
+
+```{r, results='asis', echo=FALSE}
+#| label: No Religion
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "Religion1.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Church of Scotland
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "Religion2.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Roman Catholic
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "Religion3.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Other Christian
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "Religion4.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Muslim
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "Religion5.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Other
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "Religion6.png"))
+```
+
+
+
+## 9. Ethnic Group
+Offers insight into how the SSCQ respondents identify regarding their ethnicity.
+
+```{r, results='asis', echo=FALSE}
+Ethnicity_table <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs/Ethnicity_table.rds")
+
+knitr::kable(list(Ethnicity_table), caption = "SSCQ Respondent Ethnicity by Year")
+```
+
+
+```{r, results='asis', echo=FALSE}
+#| label: White Scottish
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "Ethnicity1.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: White Other British
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "Ethnicity2.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: White Polish
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "Ethnicity3.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: White Other
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "Ethnicity4.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Asian
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "Ethnicity5.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: All Other Ethnic Groups
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "Ethnicity6.png"))
+```
+
+
+
+## 10. Sexual Orientation
+Offers insight into how the SSCQ respondents identify regarding their sexuality.
+
+```{r, results='asis', echo=FALSE}
+SexID_table <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs/SexID_table.rds")
+
+knitr::kable(list(SexID_table), caption = "SSCQ Respondent Sexual Orientation by Year")
+```
+
+
+```{r, results='asis', echo=FALSE}
+#| label: Heterosexual
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "SexID1.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: LGB+
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "SexID2.png"))
+```
+
+
+
+## 11. General Health
+This variable highlights how SSCQ respondents feel about their overall health.
+
+```{r, results='asis', echo=FALSE}
+GenHealth_table <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs/GenHealth_table.rds")
+
+knitr::kable(list(GenHealth_table), caption = "SSCQ Respondent General Health by Year")
+```
+
+
+```{r, results='asis', echo=FALSE}
+#| label: Very Good
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "GenHealth1.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Good
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "GenHealth2.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Fair
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "GenHealth3.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Bad
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "GenHealth4.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Very Bad
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "GenHealth5.png"))
+```
+
+
+
+## 12. Long-Term Condition
+This variable offers insight about whether SSCQ respondents identify that they are living with a long-term condition. 
+
+```{r, results='asis', echo=FALSE}
+LTCondition_table <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs/LTCondition_table.rds")
+
+knitr::kable(list(LTCondition_table), caption = "SSCQ Respondent Long-Term Condition by Year")
+```
+
+
+```{r, results='asis', echo=FALSE}
+#| label: Living with Long-Term Condition
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "LTCondition1.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Not Living with Long-Term Condition
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "LTCondition2.png"))
+```
+
+
+
+## 13. Smoking Status
+Offers insight into how the SSCQ respondents identify regarding their smoking status.
+
+```{r, results='asis', echo=FALSE}
+Smoking_table <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs/Smoking_table.rds")
+
+knitr::kable(list(Smoking_table), caption = "SSCQ Respondent Smoking Status by Year")
+```
+
+
+```{r, results='asis', echo=FALSE}
+#| label: Smokes
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "Smoking1.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Doesn't Smoke
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "Smoking2.png"))
+```
+
+
+
+## 14. Mental Wellbeing
+This is a continuous variable, that is able to offer limited insight into any possible trends in mental wellbeing. This variable was not reported on in 2019 and 2018, so the comparison goes back to 2016. 
+
+```{r, results='asis', echo=FALSE}
+swemwbs_table <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs/swemwbs_table.rds")
+
+knitr::kable(list(swemwbs_table), caption = "SSCQ Respondent Average Mental Wellbeing by Year")
+```
+
+
+```{r, results='asis', echo=FALSE}
+#| label: SSCQ Respondent Average Mental Wellbeing by Year
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "swemwbs_plot.png"))
+```
+
+
+
+## 15. Provision of Unpaid Care
+This variable highlights the proportion of SSCQ respondents who provide unpaid care. 
+
+```{r, results='asis', echo=FALSE}
+IndCare_table <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs/IndCare_table.rds")
+
+knitr::kable(list(IndCare_table), caption = "SSCQ Respondent Provision of Unpaid Care  by Year")
+```
+
+
+```{r, results='asis', echo=FALSE}
+#| label: Provides Unpaid Care
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "IndCare1.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Doesn't Provides Unpaid Care
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "IndCare2.png"))
+```
+
+
+
+## 16. Perception of Local Crime Rate
+This variable is able to show what SSCQ respondents think about their local area regarding crime rates and how they have changed. 
+
+```{r, results='asis', echo=FALSE}
+CrimeArea_table <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs/CrimeArea_table.rds")
+
+knitr::kable(list(CrimeArea_table), caption = "SSCQ Respondent Perception of Local Crime Rate by Year")
+```
+
+
+```{r, results='asis', echo=FALSE}
+#| label: A Lot More
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "CrimeArea1.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: A Little More
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "CrimeArea2.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: About the Same
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "CrimeArea3.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: A Little Less
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "CrimeArea4.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: A Lot Less
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "CrimeArea5.png"))
+```
+
+
+
+## 17. Police Confidence
+This variable offers insight into the confidence that SSCQ respondents have in the Police. It is broken down into 5 further sub-variables. This variable was not reported on in 2019 and 2018, so the comparison goes back to 2016. 
+
+
+### 17.1 Police Confidence A: Prevent Crime
+```{r, results='asis', echo=FALSE}
+PolConA_table <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs/PolConA_table.rds")
+
+knitr::kable(list(PolConA_table), caption = "SSCQ Respondent Police Confidence A by Year (Prevent Crime)")
+```
+
+
+```{r, results='asis', echo=FALSE}
+#| label: A - Very Confident
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "PolConA1.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: A - Fairly Confident
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "PolConA2.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: A - Not Very Confident
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "PolConA3.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: A - Not at All Confident
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "PolConA4.png"))
+```
+
+
+### 17.2 Police Confidence B: Respond quickly to appropriate calls and information from the public
+
+```{r, results='asis', echo=FALSE}
+PolConB_table <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs/PolConB_table.rds")
+
+knitr::kable(list(PolConB_table), caption = "SSCQ Respondent Police Confidence B by Year (Respond Quickly)")
+```
+
+
+```{r, results='asis', echo=FALSE}
+#| label: B - Very Confident
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "PolConB1.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: B - Fairly Confident
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "PolConB2.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: B - Not Very Confident
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "PolConB3.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: B - Not at All Confident
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "PolConB4.png"))
+```
+
+
+
+### 17.3 Police Confidence C: Deal with incidents as they occur
+```{r, results='asis', echo=FALSE}
+PolConC_table <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs/PolConC_table.rds")
+
+knitr::kable(list(PolConC_table), caption = "SSCQ Respondent Police Confidence C by Year (Deal with Incidents)")
+```
+
+
+```{r, results='asis', echo=FALSE}
+#| label: C - Very Confident
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "PolConC1.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: C - Fairly Confident
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "PolConC2.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: C - Not Very Confident
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "PolConC3.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: C - Not at All Confident
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "PolConC4.png"))
+```
+
+
+
+### 17.4 Police Confidence D: Investigate incidents after they occur
+```{r, results='asis', echo=FALSE}
+PolConD_table <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs/PolConD_table.rds")
+
+knitr::kable(list(PolConD_table), caption = "SSCQ Respondent Police Confidence D by Year (Inverstigate Incidents)")
+```
+
+
+```{r, results='asis', echo=FALSE}
+#| label: D - Very Confident
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "PolConD1.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: D - Fairly Confident
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "PolConD2.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: D - Not Very Confident
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "PolConD3.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: D - Not at All Confident
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "PolConD4.png"))
+```
+
+
+
+### 17.5 Police Confidence E: Solve crimes
+```{r, results='asis', echo=FALSE}
+PolConE_table <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs/PolConE_table.rds")
+
+knitr::kable(list(PolConE_table), caption = "SSCQ Respondent Police Confidence E by Year (Solve Crimes)")
+```
+
+
+```{r, results='asis', echo=FALSE}
+#| label: E - Very Confident
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "PolConE1.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: E - Fairly Confident
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "PolConE2.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: E - Not Very Confident
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "PolConE3.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: E - Not at All Confident
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "PolConE4.png"))
+```
+
+
+
+### 17.6 Police Confidence F: Catch criminals
+```{r, results='asis', echo=FALSE}
+PolConF_table <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs/PolConF_table.rds")
+
+knitr::kable(list(PolConF_table), caption = "SSCQ Respondent Police Confidence F by Year (Catch Criminals)")
+```
+
+
+```{r, results='asis', echo=FALSE}
+#| label: F - Very Confident
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "PolConF1.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: F - Fairly Confident
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "PolConF2.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: F - Not Very Confident
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "PolConF3.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: F - Not at All Confident
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "PolConF4.png"))
+```
+
+
+
+## 18. Top Qualification
+This variable highlights the highest qualification that the SSCQ respondents have.
+
+```{r, results='asis', echo=FALSE}
+topQual_table <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs/topQual_table.rds")
+
+knitr::kable(list(topQual_table), caption = "SSCQ Respondent Top Qualification by Year")
+```
+
+
+```{r, results='asis', echo=FALSE}
+#| label: SVQ Level 1 or 2
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "topQual1.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: SVQ Level 3
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "topQual2.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: SVQ Level 4
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "topQual3.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Above SVQ Level 4
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "topQual4.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Other Qualifications
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "topQual5.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: No Qualifications
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "topQual6.png"))
+```
+
+
+
+## 19. Economic Activity/Employment
+This variable offers insight into the employment status of SSCQ respondents at the time of participation. 
+
+```{r, results='asis', echo=FALSE}
+ILOEmp_table <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs/ILOEmp_table.rds")
+
+knitr::kable(list(ILOEmp_table), caption = "SSCQ Respondent Economic Activity by Year")
+```
+
+
+```{r, results='asis', echo=FALSE}
+#| label: In Employment
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "ILOEmp1.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Unemployed
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "ILOEmp2.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Inactive
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "ILOEmp3.png"))
+```
+
+
+
+## 20. Marital Status
+This variable gives a more granular analysis of the types of relationships of the SSCQ respondents are in (at the time of participation).
+
+```{r, results='asis', echo=FALSE}
+MaritalStatus_table <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs/MaritalStatus_table.rds")
+
+knitr::kable(list(MaritalStatus_table), caption = "SSCQ Respondent Marital Status by Year")
+```
+
+
+```{r, results='asis', echo=FALSE}
+#| label: Never Married
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "MaritalStatus1.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Married
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "MaritalStatus2.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Same-Sex Civil Partnership
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "MaritalStatus3.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Separated, still Married
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "MaritalStatus4.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Separted, still in Same-Sex Civil Partnership
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "MaritalStatus5.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Divorced
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "MaritalStatus6.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Formerly in Same-Sex Civil Partnership
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "MaritalStatus7.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Widowed
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "MaritalStatus8.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: Surviving Partner of Same-Sex Civil Partnership
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "MaritalStatus9.png"))
+```
+
+
+
+## 21. Veteran Status
+This variable was only added to the Core Questions in 2022, so only 2 SSCQ years can be compared.
+
+```{r, results='asis', echo=FALSE}
+Vets_table <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs/Vets_table.rds")
+
+knitr::kable(list(Vets_table), caption = "SSCQ Respondent Veteran Status by Year")
+```
+
+
+```{r, results='asis', echo=FALSE}
+#| label: Not a UK Armed Forces Veteran
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "Vets1.png"))
+```
+
+```{r, results='asis', echo=FALSE}
+#| label: UK Armed Forces Veteran
+knitr::include_graphics(here::here("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/QA/Outputs", "Vets2.png"))
+```
+
