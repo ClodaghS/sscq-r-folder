@@ -1,0 +1,339 @@
+---
+title: "Scottish Surveys Core Questions 2023"
+subtitle: "Technical Report"
+format: 
+  docx:
+    number-sections: false
+fig-align: center
+knitr: 
+  opts_chunk:
+    fig.align: center
+    out.width: 11cm
+execute:
+  echo: false
+---
+# Scottish Surveys Core Questions 2023
+
+The Scottish Surveys Core Questions (SSCQ) is an annual Official Statistics publication for Scotland. The SSCQ gathers survey responses from identical [indicator questions](https://www.gov.scot/collections/scottish-surveys-core-questions/) in the Scottish Crime and Justice Survey (SCJS), the Scottish Health Survey (SHeS) and the Scottish Household Survey (SHS) into one output.
+
+The Scottish Surveys Core Questions in 2023 reports on the following overarching topics:health, demography and equality, as well as perception of crime and confidence in police.
+
+The pooling of the Core Questions results in an annual sample of around 20,000 respondents, providing unprecedented precision of estimates at a national level. This sample size enables detailed and reliable analysis of national indicators by **equalities characteristics** such as ethnic group, religion, country of birth, marital status, sexual orientation, age, sex and veteran status. Further variables available include education level, employment, tenure, car access and household type. 
+
+The SSCQ also enable a more detailed analysis of **sub-national geographies** than the source surveys allow. Annually, SSCQ reports for local authorities, health boards, area deprivation, urban/rural classification and police divisions.
+
+```{r, results='asis', echo=FALSE}
+cat("\\newpage")
+```
+
+## 1.1 Source Surveys and Core Questions
+
+Results from the three large-scale Scottish Government population surveys are published separately as Accredited Official Statistics:
+
+- [Scottish Crime and Justice Survey (SCJS)](https://www.gov.scot/collections/scottish-crime-and-justice-survey/#:~:text=The%20Scottish%20Crime%20and%20Justice%20Survey%20%28SCJS%29%20is,monitor%20the%20impact%20of%20initiatives%20since%20the%201980s.)
+
+- [Scottish Health Survey (SHeS)](https://www.gov.scot/collections/scottish-health-survey/)
+
+- [Scottish Household Survey (SHS)](https://www.gov.scot/collections/scottish-household-survey-publications/)
+
+Further information on Population Surveys in Scotland can be found on the [Scottish Government website](https://www.gov.scot/collections/population-surveys-in-scotland/).
+
+Since the beginning of 2012, each of the surveys have included a set of around 20 core questions that provide information on the composition, characteristics and attitudes of Scottish households and adults across a number of topic areas including equality characteristics, housing, employment and perceptions of health and crime. Responses to these questions in all three surveys have been pooled to provide the Scottish Surveys Core Questions (SSCQ) dataset with a sample size of around 20,000 responses.
+
+Full details of the [harmonised questions](https://www.gov.scot/collections/scottish-surveys-core-questions/) are available online and questionnaires are provided on the websites of each of the individual surveys.
+
+Due to the different sampling nature of each survey, which is necessary to meet their primary aims, the number of respondents varies between different SSCQ questions. The questions were hence batched into three groups: household questions, individual questions and crime questions, and three different sets of weights calculated to ensure representative results. Sampling, weighting and pooled sample numbers are described separately for each survey below.
+
+**Scottish Crime and Justice Survey (SCJS) technical notes**
+
+Sampling, survey response and weighting are described in full in the [SCJS technical report](https://www.gov.scot/collections/scottish-crime-and-justice-survey/). Briefly, the survey consists of a stratified systematic sample which is designed to achieve a robust sample at national and local authority level. The target sample size at national level is 6,000 interviews per year. One random adult per household is interviewed and asked all SSCQ and SCJS questions.
+
+**Scottish Health Survey (SHeS) technical notes**
+
+Sampling, survey response and weighting are described in full in the [SHeS technical report](https://www.gov.scot/collections/scottish-health-survey/). Briefly, the survey is a partially clustered stratified multi-stage sample, with local authorities as strata, intermediate geographies as primary sampling units and addresses as secondary sampling unit. All adults and up to two children in each household are eligible for interview. Only one adult in each household is asked the crime and household questions to remain in line with the SCJS sampling procedure. The SHeS sample is boosted for some health boards and to capture more households with children. The SHeS did not collect data regarding Police Confidence this year, which does mean that the SSCQ sample for this variable is smaller compared to the other variables. 
+
+**Scottish Household Survey (SHS) technical notes**
+
+Sampling, survey response and weighting are described in full in the [SHS technical report](https://www.gov.scot/collections/scottish-household-survey-publications/).The SHS consists of a stratified systematic sample with a target minimum effective sample size of 250 per local authority. The SSCQ household questions are answered by the highest income householder or their spouse/partner, and one adult is randomly selected to answer the individual and crime questions, in line with the other two surveys.
+
+### Impact of the COVID-19 Pandemic on the SSCQ
+
+To help prevent the spread of COVID-19, the Scottish Government suspended face-to-face interviewing for the 3 source surveys in March 2020. This greatly impacted the fieldwork for the source surveys and led to the SCJS not taking place in 2020/2021.
+
+Fieldwork restrictions were lifted for the 2022 fieldwork period, but many surveys still offered remote interviews and adopted a ‘knock-to-nudge’ approach. The 2023 fieldwork approaches are now aligned with pre-COVID methods.
+
+Due to the inconsistencies in data collection methods and the data unavailability of the SCJS in 2020/21, the SSCQ were not published for 2020 and 2021, causing a break in the time-series. The Multiyear SSCQ analysis therefore started afresh with the 2022 data. The next Multiyear SSCQ analysis covering the years 2022-2023 will be published alongside this publication (SSCQ 2023).
+
+The SSCQ 2023 are most comparable to the [SSCQ 2019](https://www.gov.scot/publications/scottish-surveys-core-questions-2019/). 
+
+## 1.2 Weighting
+
+Datasets from the three source surveys were combined into new SSCQ datasets: SSCQ household variables (x responses), SSCQ individual variables (x responses) and SSCQ crime variables (x responses). 
+
+SSCQ household variables are household type, tenure and car access.
+
+SSCQ individual variables are self-assessed general health, limiting long-term health conditions, smoking, unpaid care provision, mental wellbeing, highest achieved qualification, economic activity, country of birth, ethnic group, religion, veteran status, marital status, sexual orientation, sex and age.
+
+SSCQ crime variables are perception of local crime rate and six questions on perceptions of police performance.
+
+Each variable response category (i.e., household, individual, crime) in each of the surveys carries a different design effect. If we were solely seeking the most efficient estimate for each variable separately, then separate scale factors could be derived for each one. However, this would restrict the use of the dataset. Rather, for each constituent survey dataset the design effects were estimated for each category and then the median design effect over all categories was used as the representative design effect of that survey. These design effects were then used along with the sample sizes to calculate the effective sample sizes (neff) and scaling factors for combining the three datasets.
+
+### => potentially table 1: sample and neff from source surveys
+
+To combine the data, the scale factors were applied to the grossing weights for the individual surveys (described in section 1.1). The neff of each survey contribution formed the basis for the scaling factors:
+
+survey A weight scaling factor = neff (surveyA) / (sum of three survey neffs). 
+
+The weights were then re-scaled to be proportionate to the effective sample size contribution of each survey and used as pre-weights. The three pooled survey datasets were then weighted again to be representative across Scotland. For the SHS and SCJS, this is the total estimated population in Scotland. For the SHeS, this is the estimated population of Scotland living in private households. In order to include the SHeS survey data in the SSCQ, new pooled weights were calculated to make the data representative to this higher number, the total population of Scotland.
+
+As a result of this *(together with some differences in the way that ‘refused’ and ‘don’t know’ responses are dealt with, which are described in section 1.6)*, the SHeS figures included in the SSCQ will be different to those published by the SHeS, because the data has been weighted to different population totals. Users should refer to the individual surveys for the key national indicators but may use the SSCQ for break-downs by equality groupings and small areas.
+
+SSCQ 2023 Weighting Bases are published in the [Supporting Documents](hyperlink here) section on the website.
+
+## 1.3 Confidence Interval Calculations
+
+All three source surveys are stratified to ensure sufficient sample sizes in smaller local authorities. SHeS is clustered in each annual fieldwork period and, while this effect cancels out over each four-year period, must be accounted for in producing annual results.
+
+Confidence intervals have been calculated using a method to account for stratification, weights and clustering (surveyfreq in SAS and/or svymean in R). In the case of negative lower confidence interval limits, values were replaced by 0 as population percentages always range between 0% and 100%. Confidence intervals across all subgroup estimates in SSCQ are provided in the accompanying Supplementary Tables in the [Supporting Documents](hyperlink here) section on the website.
+
+Confidence intervals (at a 95% level) are plotted on point estimates for all charts and figures in the tables and reports. If the intervals surrounding two different point estimates do not overlap, then there is a significant difference between the two points. However, if they do overlap, it does not necessarily mean there is no significant difference (see [further guidance](https://webarchive.nrscotland.gov.uk/20201110103716/http:/www.gov.scot/Topics/Statistics/About/Methodology/confinv)).
+
+A comparison of estimates of key variables across the three constituent surveys and the SSCQ are provided in Annex A.
+
+## 1.4 Statistical Disclosure Control
+
+In the supplementary tables, all estimates based on five or fewer respondents have been denoted with '\*' to safeguard the confidentiality of respondents with rare characteristics. 
+Cells with true zero counts are denoted with ‘.’ or 0 throughout, unless denoted '\*' as part of disclosure control. 
+Further cells with zero or low respondent numbers in the same row and column as the low responses have also been suppressed with ‘\*’ to ensure confidentiality.
+
+## 1.5 Accounting for Mode Effect
+
+Questions on mental wellbeing, sexual orientation, trans history and status, and veteran status are included in a [self-completion questionnaire](https://www.gov.scot/publications/scottish-health-survey-2023-volume-2-technical-report/) in the Scottish Health Survey (SHeS), whereas these questions are asked by an interviewer in the Scottish Household Survey (SHS) and the Scottish Crime and Justice Survey (SCJS). Not all respondents to the interviewer-administered element of the SHeS go on to answer questions in the self-completion element.
+
+From SSCQ 2022 (previous publication), data analysis of the pooled SSCQ questions on mental wellbeing, sexual orientation and veteran status align with the data analysis method employed by the SHeS, where prevalence rates are based on those respondents that answered each question. Previously, the SSCQ approach was to pool the data by taking account of the missing responses, but not adjusting for them, e.g. percentage yes = (number yes / (number yes + number no + number refused or missing)) x 100). This meant that for the questions included on the self-completion questionnaire in the SHeS, the response percentages were lower than for the interviewer-led questions in the SHS and SCJS. This in turn resulted in smaller pooled SSCQ numbers when combining the responses from the three surveys. 
+
+While the change in data analysis means that the data are now more comparable to those published in the SHeS, it also means that caution should be exercised when comparing sexual orientation with previously published SSCQ data. Caution should also be exercised when comparing mental wellbeing figures with previous years; but as this is an average score of those responding, we would not expect this to be as impacted by the change in methodology. Veteran status will be comparable this year, as the previous publication was the first time this variable was included.
+
+## 1.6 Treatment of Non-Responses
+
+Item non-responses occur when a person participates in a survey but does not provide an answer to a specific question. These responses are typically coded as ‘refused’, ‘don’t know’ or ‘prefer not to say’.
+
+Although the SSCQ includes item non-responses in their calculations, ‘refused’ and ‘don’t know’ responses are excluded from any data presentations. Row totals in the Annex or the supplementary tables may therefore not add to 100%, and numbers of adults and sample may not add to the Scotland total for each cross-variable.
+
+Individual surveys may take a different approach to coding non-responses which can mean slight differences in the results presented in SSCQ. To adopt a more consistent approach within the SSCQ and align the SSCQ with its constituent surveys, we are reviewing the SSCQ methodology and handling of item non-responses.
+
+## 1.7 Mental Wellbeing Scoring
+
+Mental wellbeing is measured using the shortened [Warwick–Edinburgh Mental Wellbeing Scale (WEMWBS) questionnaire](https://warwick.ac.uk/fac/sci/med/research/platform/wemwbs) in the SSCQ.
+
+For background, the WEMWBS has 14 items designed to assess: positive affect (optimism, cheerfulness, relaxation) and satisfying interpersonal relationships and positive functioning (energy, clear thinking, self-acceptance, personal development, mastery and autonomy). The scale uses positively worded statements with a five-item scale ranging from “1 - none of the time” to “5 - all of the time”. The total score is the sum of these responses across the 14 questions. The scale therefore runs from 14 for the lowest levels of mental wellbeing to 70 for the highest.
+
+SWEMWBS, as asked in the SSCQ, is [a shortened version of WEMWBS which is Rasch compatible](https://warwick.ac.uk/fac/sci/med/research/platform/wemwbs/using/howto/). This means the seven items included have undergone a more rigorous test for internal consistency than the 14 item scale and have superior scaling properties. The seven items relate more to functioning than to feeling and therefore offer a slightly different perspective on mental wellbeing. However, the correlation between WEMWBS and SWEMWBS is high at 95.4%. The SWEMWBS scale runs from seven for the lowest levels of mental wellbeing to 35 for the highest.
+
+SWEMWBS statements are as follows:
+
+- I've been feeling optimistic about the future
+
+- I've been feeling useful
+
+- I've been feeling relaxed
+
+- I've been dealing with problems well
+
+- I've been thinking clearly
+
+- I've been feeling close to other people
+
+- I've been able to make up my own mind about things
+
+Peaks at multiples of seven are produced by column effects, where respondents are more likely to place answers down a column giving the same response for each question. SWEMWBS scores undergo a [metric conversion](https://warwick.ac.uk/fac/sci/med/research/platform/wemwbs/using/howto/swemwbs_raw_score_to_metric_score_conversion_table.pdf) to correct somewhat for this effect and produce a distribution that is closer to normal, also reducing the boundary effect at the scale maximum of 35.
+
+## 1.8 Presentation of Data on Sex
+
+The Scottish Government [guidance on sex, gender identity and trans status](https://www.gov.scot/publications/data-collection-publication-guidance-sex-gender-identity-trans-status/) was updated in 2024. Questions about sex  and trans history are now identical across the surveys forming part of the SSCQ. 
+
+Since 2022, respondents are asked about their sex and trans history and status separately. For sex, there are three response options: “Male”, “Female” and “Prefer not to say”. For trans history and status, there are two response options: “Yes” and “No”. Those who select “Yes” for the trans history and status question can record their trans status in a free text box.
+
+Due to the small number of respondents reporting a trans history and status, we are currently not publishing this data. For future publications, notably Multiyear SSCQ (such as this year), we have worked closely with Scotland’s Census 2022 Outputs team develop a framework for coding free text responses to the trans status question. This framework can be found [here](https://www.gov.scot/publications/data-collection-publication-guidance-sex-gender-identity-trans-status/). 
+
+## 1.9 Presentation of Data on Veteran Status
+
+This is the second time data on veteran status has been published as part of the SSCQ. Respondents were asked “Have you previously served in the UK Armed Forces?”, and the response options were presented as follows:
+
+1. No 
+2. Yes, previously served in regular Armed Forces
+3. Yes, previously served in reserve Armed Forces
+
+Current serving members were instructed to select the “No” option.
+
+As with other questions, respondents could choose to answer “don’t know” or refuse to answer. For the SSCQ, both “Yes” response options were combined into a single “Yes” category.
+
+As this question has only been included twice in the SSCQ, it is not possible to provide comparisons or trends over time. 
+
+Given it is the second time the SSCQ is reporting on veteran status, we treat the data as “[Official Statistics in Development](https://osr.statisticsauthority.gov.uk/policies/official-statistics-policies/official-statistics-in-development/#:~:text=Official%20statistics%20in%20development%20are,Code%20of%20Practice%20for%20Statistics.)” and welcome user feedback on how to improve the reporting of this information.
+
+## 1.10 Presentation of Data on Religion
+
+### Table 2: Grouping of religion in the SSCQ 2023
+
+Due to rounding, summing figures in this table may not exactly match the presented totals. Figures have been rounded to be more in line with those presented in the Supplementary Tables in the [Supporting Documents](insert hyperlink here) section on the website.
+
+```{r, results='asis', echo=FALSE}
+table_2.1 <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/Technical Report/output/table_2.1.rds")
+table_2.2 <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/Technical Report/output/table_2.2.rds")
+
+knitr::kable(list(table_2.1, table_2.2),
+             caption = "Religion",
+             booktabs = TRUE, valign = 't')
+```
+
+
+## 1.11 Presentation of Data on Ethnic Groups
+
+### Table 3: Grouping of ethnic groups in the SSCQ 2023
+
+Due to rounding, summing figures in this table may not exactly match the presented totals. Figures have been rounded to be more in line with those presented in the Supplementary Tables in the [Supporting Documents](insert hyper link here) section on the website.
+
+```{r, results='asis', echo=FALSE}
+table_3.1 <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/Technical Report/output/table_3.1.rds")
+table_3.2 <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/Technical Report/output/table_3.2.rds")
+
+knitr::kable(list(table_3.1, table_3.2),
+             caption = "Ethnic Groups",
+             booktabs = TRUE, valign = 't')
+```
+
+
+```{r, results='asis', echo=FALSE}
+cat("\\newpage")
+```
+
+# Annex A. Comparison of the Pooled Surveys
+
+In this section, estimates from the pooled SSCQ and its constituent surveys, SCJS, SHeS and SHS, are displayed and assessed to determine agreement for key variables.
+
+There are three ways in which the results could vary between the three component surveys:
+
+1) There could be different biases in the pool of individuals completing the different surveys which weighting can only partly correct for.
+
+2) The different context in which the questions are asked in the three component surveys as well as mode effects may have an impact on responses given.
+
+3) Mode effects, e.g. sexual orientation, trans status, veteran status and mental health and wellbeing are asked by an interviewer in SCJS and SHS but in a self-completion module in SHeS. 
+
+The data presented here are the components of the SSCQ as contributed by each survey based on the SSCQ’s pooled methodology, not the estimates from each individual survey as published in their respective publications. Differences from published estimates in individual surveys are due to the the valid sample size and weights being applied before pooling (see section 1.2).
+
+*Row percentages may not add up to 100% due to rounding and the exclusion of “refused” and “don’t know” responses.*
+
+## Table A.1: Self-assessed general health by source survey (row % and margin of error)
+```{r, results='asis', echo=FALSE}
+table_a1 <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/Technical Report/output/table_a1_estimates.rds")
+knitr::kable(table_a1)
+```
+
+## Table A.2: Current smoker by source survey (row % and margin of error)
+```{r, results='asis', echo=FALSE}
+table_a2 <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/Technical Report/output/table_a2_estimates.rds")
+knitr::kable(table_a2)
+```
+
+## Table A.3: Long-term limiting health condition by source survey (row % and margin of error)
+```{r, results='asis', echo=FALSE}
+table_a3 <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/Technical Report/output/table_a3_estimates.rds")
+knitr::kable(table_a3)
+```
+
+## Table A.4: Provides unpaid care by source survey (row % and margin of error)
+```{r, results='asis', echo=FALSE}
+table_a4 <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/Technical Report/output/table_a4_estimates.rds")
+knitr::kable(table_a4)
+```
+
+## Table A.5: Average mental wellbeing score by source survey (row average and margin of error)
+```{r, results='asis', echo=FALSE}
+table_a5 <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/Technical Report/output/table_a5_estimates.rds")
+knitr::kable(table_a5)
+```
+
+## Table A.6: Veteran status by source survey (row % and margin of error)
+```{r, results='asis', echo=FALSE}
+table_a6 <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/Technical Report/output/table_a6_estimates.rds")
+knitr::kable(table_a6)
+```
+
+## Table A.7: Sexual orientation by source survey (row % and margin of error)
+```{r, results='asis', echo=FALSE}
+table_a7 <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/Technical Report/output/table_a7_estimates.rds")
+knitr::kable(table_a7)
+```
+
+## Table A.8: Perception of local crime rate by source survey (row % and margin of error)
+```{r, results='asis', echo=FALSE}
+table_a8 <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/Technical Report/output/table_a8_estimates.rds")
+knitr::kable(table_a8)
+```
+
+## Table A.9: Confidence in the police by source survey (row % and margin of error)
+
+### A: Prevent crime
+```{r, results='asis', echo=FALSE}
+table_a9a <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/Technical Report/output/table_a9a_estimates.rds")
+knitr::kable(table_a9a)
+```
+
+### B: Respond quickly to appropriate calls and information from the public
+```{r, results='asis', echo=FALSE}
+table_a9b <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/Technical Report/output/table_a9b_estimates.rds")
+knitr::kable(table_a9b)
+```
+
+### C: Deal with incidents as they occur
+```{r, results='asis', echo=FALSE}
+table_a9c <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/Technical Report/output/table_a9c_estimates.rds")
+knitr::kable(table_a9c)
+```
+
+### D: Investigate incidents after they occur
+```{r, results='asis', echo=FALSE}
+table_a9d <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/Technical Report/output/table_a9d_estimates.rds")
+knitr::kable(table_a9d)
+```
+
+### E: Solve crimes
+```{r, results='asis', echo=FALSE}
+table_a9e <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/Technical Report/output/table_a9e_estimates.rds")
+knitr::kable(table_a9e)
+```
+
+### F: Catch criminals
+```{r, results='asis', echo=FALSE}
+table_a9f <- readRDS("//s0177a/datashare/OCS/OCS 2/Centralised Weighting Project/2023 Weighting/SSCQ 2023/R Folder/Technical Report/output/table_a9f_estimates.rds")
+knitr::kable(table_a9f)
+```
+
+
+```{r, results='asis', echo=FALSE}
+cat("\\newpage")
+```
+
+# Tell Us What You Think
+
+We are always interested to hear from our users about how our statistics are used, and how they can be improved.
+
+**Enquiries**
+
+For enquiries about this publication, please contact:
+
+The Survey Strategy and Coordination Team in the Office of the Chief Statistician
+E-mail: sscq@gov.scot (make hyperlink?)
+
+For general enquiries about Scottish Government statistics, please contact:
+Office of the Chief Statistician
+E-mail: statistics.enquiries@gov.scot (make hyperlink?)
+
+**Join our mailing list**
+
+If you would like to receive notification about statistical publications, or find out about consultations on our statistics, please join the [ScotStat mailing list](https://www.gov.scot/publications/scotstat-register-guidance/).
+
+**Future publications**
+
+Details of future publications can be found on our [forthcoming publications](https://www.gov.scot/publications/official-statistics-forthcoming-publications/) page.
